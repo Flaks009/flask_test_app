@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+    {% for item in range(items['id']|length) %}
+        <p class="lead">{{items['id'][item]}}, {{items['string_t'][item]}}</p>
+    {% endfor %}
+</div>
+{% endblock %}
