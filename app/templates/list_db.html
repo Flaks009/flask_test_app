@@ -3,8 +3,22 @@
 {% block content %}
 <div class="container">
 
-    {% for item in range(items['id']|length) %}
-        <p class="lead">{{items['id'][item]}}, {{items['string_t'][item]}}</p>
-    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">String</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in range(items['id']|length) %}
+            <tr>
+                <th scope="row">{{items['id'][item]}}</th>
+                <td>{{items['string_t'][item]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 </div>
 {% endblock %}
