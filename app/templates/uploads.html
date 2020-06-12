@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Example file input</label>
+            {{ form.hidden_tag() }}
+            {{ form.file(class_="form-control-file", id="exampleFormControlFile1", type="file")}}
+            <input type="submit">
+        </div>
+</div>
+{% endblock %}
