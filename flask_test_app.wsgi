@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #flaskapp.wsgi
 import sys
 sys.path.insert(0, '/var/www/html/flask_test_app')
