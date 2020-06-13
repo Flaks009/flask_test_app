@@ -1,4 +1,4 @@
-from app.db_config import DB
+#from app.db_config import DB
 import psycopg2
 import pandas as pd
 
