@@ -25,7 +25,7 @@ def desenho():
 @app.route('/patente')
 def patente():
     patente = list_patente()
-    return render_template('desenho.html', title = 'Patente', patente = patente)
+    return render_template('patente.html', title = 'Patente', patente = patente)
 
 def allowed_file(filename):
     return '.' in filename and \
