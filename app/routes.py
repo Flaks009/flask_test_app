@@ -3,7 +3,7 @@ import os
 from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app.forms import LoginForm, TestForm, UploadForm
-from app.db import list_rpi, list_marca
+from app.db import list_rpi, list_marca, list_desenho, list_patente
 from werkzeug.utils import secure_filename
 
 @app.route('/')
@@ -17,6 +17,15 @@ def marca():
     marca = list_marca()
     return render_template('marca.html', title = 'Marca', marca = marca)
 
+@app.route('/desenho')
+def desenho():
+    desenho = list_desenho()
+    return render_template('desenho.html', title = 'Desenho', desenho = desenho)
+
+@app.route('/patente')
+def patente():
+    patente = list_patente()
+    return render_template('desenho.html', title = 'Patente', patente = patente)
 
 def allowed_file(filename):
     return '.' in filename and \

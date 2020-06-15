@@ -13,3 +13,15 @@ def list_marca():
     items = pd.read_sql_query('SELECT * FROM marca', con)
     items = items.to_dict()
     return items
+
+def list_patente():
+    con = psycopg2.connect(host = DB.HOST, port=DB.PORT, user=DB.USER, password=DB.PASSWORD, database=DB.DATABASE)
+    items = pd.read_sql_query('SELECT * FROM patente', con)
+    items = items.to_dict()
+    return items
+
+def list_desenho():
+    con = psycopg2.connect(host = DB.HOST, port=DB.PORT, user=DB.USER, password=DB.PASSWORD, database=DB.DATABASE)
+    items = pd.read_sql_query('SELECT * FROM desenho', con)
+    items = items.to_dict()
+    return items
