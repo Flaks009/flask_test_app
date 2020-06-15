@@ -4,27 +4,28 @@
 <div class="container">
     <table class="table">
         <thead>
-          <tr>
-            <th scope="col">Rpi</th>
-            <th scope="col">Numero</th>
-            <th scope="col">Codigo</th>
-            <th scope="col">Nome codigo</th>
-            <th scope="col">Razao social</th>
-            <th scope="col">Procurador</th>
-          </tr>
+            <tr>
+                <th scope="col">Rpi</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nome codigo</th>
+                <th scope="col">Razao social</th>
+                <th scope="col">Procurador</th>
+            </tr>
         </thead>
         <tbody>
             {% for item in range(marca['numero']|length) %}
-          <tr>
-            <td>rpi['numero_rpi'][item]</td>
-            <td>rpi['numero'][item]</td>
-            <td>rpi['codigo'][item]</td>
-            <td>rpi['nome'][item]</td>
-            <td>rpi['nome-razao-social'][item]</td>
-            <td>rpi['procurador'][item]</td>
-          </tr>
+            <tr>
+                <td>rpi['numero_rpi'][item]</td>
+                <td>rpi['numero'][item]</td>
+                <td>rpi['codigo'][item]</td>
+                <td>rpi['nome'][item]</td>
+                <td>rpi['nome-razao-social'][item]</td>
+                <td>rpi['procurador'][item]</td>
+            </tr>
+            {% endfor %}
         </tbody>
-      </table>
+    </table>
 
 </div>
 {% endblock %}
