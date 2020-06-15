@@ -16,12 +16,12 @@
         <tbody>
             {% for item in range(marca['numero']|length) %}
             <tr>
-                <td>rpi['numero_rpi'][item]</td>
-                <td>rpi['numero'][item]</td>
-                <td>rpi['codigo'][item]</td>
-                <td>rpi['nome'][item]</td>
-                <td>rpi['nome-razao-social'][item]</td>
-                <td>rpi['procurador'][item]</td>
+                <td>{{rpi['numero_rpi'][item]}}</td>
+                <td>{{rpi['numero'][item]}}</td>
+                <td>r{{pi['codigo'][item]}}</td>
+                <td>{{rpi['nome'][item]}}</td>
+                <td>{{rpi['nome-razao-social'][item]}}</td>
+                <td>{{rpi['procurador'][item]}}</td>
             </tr>
             {% endfor %}
         </tbody>
