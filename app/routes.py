@@ -1,17 +1,15 @@
 
 import os
-import json
 from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app.forms import LoginForm, TestForm, UploadForm
-from app.db import insert, list_db_sql
+from app.db import insert, list_rpi
 from werkzeug.utils import secure_filename
 
 @app.route('/')
 @app.route('/index')
 def index():
-    rpi = open('/home/ubuntu/flask_test_app/app/json_files/rpi.json')
-    rpi = json.load(rpi)
+    rpi = list_rpi()
     return render_template('index.html', title = 'Home', rpi = rpi)
 
 @app.route('/login', methods = ['GET', 'POST'])
@@ -32,14 +30,6 @@ def form_test():
         insert(form.string_t.data)
         return redirect('list_db')
     return render_template('form_test.html', title = 'Test', form = form)
-
-@app.route('/list_db')
-def list_db():
-
-    items = list_db_sql()
-    return render_template('list_db.html', items = items)
-
-
 
 def allowed_file(filename):
 
