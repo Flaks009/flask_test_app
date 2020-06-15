@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <body>
-    <h1>RPI</h1>
-    {% for item in rpi['numero_rpi'] %}
-        <p>Revista: {{rpi['numero_rpi'][item]}} <a href='#'>Desenho</a> | <a href="#">Patente</a></p>
-    {% endfor %}
+    <div class="container text-center">
+        <h1>RPI</h1>
+        {% for item in rpi['numero_rpi'] %}
+            <p>Revista: {{rpi['numero_rpi'][item]}} <a href='#'>Desenho</a> | <a href="#">Patente</a></p>
+        {% endfor %}
+    </div>
 </body>
 {% endblock %}
