@@ -8,9 +8,9 @@
         {% for item in rpi['numero_rpi'] %}
         <p>
             Revista: {{rpi['numero_rpi'][item]}}<form action="{{ url_for('get_desenho_rpi')}}" name="desenho_rpi"><input
-                    value="{{rpi['numero_rpi'][item]}}" type="hidden"><input type="submit" name="Desenho"></form>|<form action="{{ url_for('get_patente_rpi')"
+                    value="{{rpi['numero_rpi'][item]}}" type="hidden"><input type="submit" name="Desenho"></form>|<form action="{{ url_for('get_patente_rpi')}}"
                 name="patente_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><input type="submit" name="Patente"></form>|<form
-                action="{{ url_for('get_patente_rpi')" name="marca_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><input type="submit" name="Marca">
+                action="{{ url_for('get_patente_rpi')}}" name="marca_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><input type="submit" name="Marca">
             </form>
         </p>
         {% endfor %}
