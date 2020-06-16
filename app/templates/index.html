@@ -6,9 +6,14 @@
     <div class="container text-center">
         <h1>RPI</h1>
         {% for item in rpi['numero_rpi'] %}
-        <p>
-            Revista: {{rpi['numero_rpi'][item]}}<form action="{{ url_for('get_desenho_rpi')}}" name="desenho_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><button type="submit" class="btn btn-primary">Desenho</button></form>|<form action="{{ url_for('get_patente_rpi')}}" name="patente_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><button type="submit" class="btn btn-primary">Patente</button></form>|<form action="{{ url_for('get_patente_rpi')}}" name="marca_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><button type="submit" class="btn btn-primary">Marca</button></form>
-        </p>
+        <div class="container">
+            <div class="row">
+                Revista: {{rpi['numero_rpi'][item]}}
+                <form action="{{ url_for('get_desenho_rpi')}}" name="desenho_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><button type="submit" class="btn btn-primary">Desenho</button></form>|
+                <form action="{{ url_for('get_patente_rpi')}}" name="patente_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><button type="submit" class="btn btn-primary">Patente</button></form>|
+                <form action="{{ url_for('get_patente_rpi')}}" name="marca_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><button type="submit" class="btn btn-primary">Marca</button></form>
+            </div>
+        </div>
         {% endfor %}
     </div>
 </body>
