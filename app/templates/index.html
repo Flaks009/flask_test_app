@@ -6,9 +6,13 @@
     <div class="container text-center">
         <h1>RPI</h1>
         {% for item in rpi['numero_rpi'] %}
-            <p>
-                Revista: {{rpi['numero_rpi'][item]}}<form action="/get_desenho_rpi" name="desenho_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="submit">Desenho</form>|<form action="/get_patente_rpi" name="patente_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="submit">Patente</form>|<form action="/get_marca_rpi" name="marca_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="submit">Marca</form>
-            </p>
+        <p>
+            Revista: {{rpi['numero_rpi'][item]}}<form action="{{ url_for('get_desenho_rpi')}}" name="desenho_rpi"><input
+                    value="{{rpi['numero_rpi'][item]}}" type="hidden"><input type="submit" name="Desenho"></form>|<form action="{{ url_for('get_patente_rpi')"
+                name="patente_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><input type="submit" name="Patente"></form>|<form
+                action="{{ url_for('get_patente_rpi')" name="marca_rpi"><input value="{{rpi['numero_rpi'][item]}}" type="hidden"><input type="submit" name="Marca">
+            </form>
+        </p>
         {% endfor %}
     </div>
 </body>
