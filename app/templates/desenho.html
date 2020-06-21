@@ -6,14 +6,10 @@
     </table>
 </div>
 <script>
-
     var data = JSON.parse('{{desenho | tojson | safe}}')
 
-    $('#data-table').DataTable( {
-    data: data,
-    columns: [
-        {data: 'numero_rpi'}
-    ]
-} );
+    $('#data-table').DataTable({
+        data: data
+    });
 </script>
 {% endblock %}
