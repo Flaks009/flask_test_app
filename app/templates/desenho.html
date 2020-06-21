@@ -20,9 +20,9 @@
 
     var table = $('#data-table').DataTable({});
 
-    $.each(data, function (i, data) {
-        table.row.add([data.numero_rpi, data.codigo, data.nome_do_depositante, data.nome_do_autor, data
-            .numero_do_pedido, data.nome_do_procurador
+    $.each(data.numero_do_pedido, function (i, key) {
+        table.row.add([data.numero_rpi[i], data.codigo[i], data.nome_do_depositante[i], data.nome_do_autor[i], data
+            .numero_do_pedido[i], data.nome_do_procurador[i]
         ]);
     });
 
