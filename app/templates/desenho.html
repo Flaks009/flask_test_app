@@ -9,10 +9,7 @@
     var data = JSON.parse('{{desenho | tojson | safe}}')
 
     $('#data-table').DataTable({
-        data: data,
-        columns:[
-            {data: data.numero_rpi}
-        ]
+        data: data
     });
 </script>
 {% endblock %}
