@@ -3,16 +3,6 @@
 {% block content %}
 <div class="container">
     <table class="table" id="data-table">
-        <thead>
-            <tr>
-                <th scope="col">Rpi</th>
-                <th scope="col">Codigo</th>
-                <th scope="col">Nome do Depositante</th>
-                <th scope="col">Nome do Autor</th>
-                <th scope="col">Numero Do Pedido</th>
-                <th scope="col">Procurador</th>
-            </tr>
-        </thead>
     </table>
 </div>
 <script>
@@ -21,7 +11,7 @@
     $('#data-table').DataTable({
         data: data,
         columns:[
-            {data: "data.numero_rpi"}
+            {data: data.numero_rpi}
         ]
     });
 </script>
