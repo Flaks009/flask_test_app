@@ -17,7 +17,15 @@
     var data = JSON.parse('{{desenho | tojson | safe}}')
 
     $('#data-table').DataTable({
-        data: data
+        data: data,
+        columns:[
+            {data: data.numero_rpi},
+            {data: data.codigo},
+            {data: data.nome_do_depositante},
+            {data: data.nome_do_autor},
+            {data: numero_do_pedido},
+            {data: nome_do_procurador}
+        ]
     });
 </script>
 {% endblock %}
