@@ -21,7 +21,7 @@
     var table = $('#data-table').DataTable({});
 
     $.each(data, function (i, data) {
-        myTable.row.add([data.numero_rpi, data.codigo, data.nome_do_depositante, data.nome_do_autor, data
+        table.row.add([data.numero_rpi, data.codigo, data.nome_do_depositante, data.nome_do_autor, data
             .numero_do_pedido, data.nome_do_procurador
         ]);
     });
