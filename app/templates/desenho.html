@@ -2,30 +2,22 @@
 
 {% block content %}
 <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Rpi</th>
-                <th scope="col">Codigo</th>
-                <th scope="col">Nome do Depositante</th>
-                <th scope="col">Nome do Autor</th>
-                <th scope="col">Numero Do Pedido</th>
-                <th scope="col">Procurador</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in range(desenho['numero_do_pedido']|length) %}
-            <tr>
-                <td>{{desenho['numero_rpi'][item]}}</td>
-                <td>{{desenho['codigo'][item]}}</td>
-                <td>{{desenho['nome_do_depositante'][item]}}</td>
-                <td>{{desenho['nome_do_autor'][item]}}</td>
-                <td>{{desenho['numero_do_pedido'][item]}}</td>
-                <td>{{desenho['nome_do_procurador'][item]}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+    <table class="table" id="data-table">
     </table>
-
 </div>
+<script>
+    var data = "{{desenho}}";
+
+    $('#data-table').DataTable( {
+    data: data,
+    columns: [
+        { data: 'Rpi' },
+        { data: 'Codigo' },
+        { data: 'Nome Depositante' },
+        { data: 'Nome do Autor' },
+        { data: 'Numero do Pedido' },
+        { data: 'Procurador' }
+    ]
+} );
+</script>
 {% endblock %}
