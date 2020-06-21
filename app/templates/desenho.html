@@ -19,7 +19,7 @@
     var data = JSON.parse('{{desenho | tojson | safe}}')
 
     $('#data-table').DataTable({
-        data: data.stringify()
+        data: JSON.stringify(data)
     });
 </script>
 {% endblock %}
