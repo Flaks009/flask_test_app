@@ -7,13 +7,7 @@
 </div>
 <script>
 
-    var data = '{{desenho}}';
-    var numero_rpi = "{{desenho['numero_rpi']}}";
-    var codigo = "{{desenho['codigo']}}";
-    var nome_do_depositante = "{{desenho['nome_do_depositante']}}";
-    var nome_do_autor = "{{desenho['nome_do_autor']}}";
-    var numero_do_pedido = "{{desenho['numero_do_pedido']}}";
-    var nome_do_procurador = "{{desenho['nome_do_procurador']}}";
+    var data = JSON.parse('{{desenho | tojson | safe}}')
 
     $('#data-table').DataTable( {
     data: data,
