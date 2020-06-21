@@ -19,12 +19,12 @@
     $('#data-table').DataTable({
         data: data,
         columns:[
-            {data: data.numero_rpi},
-            {data: data.codigo},
-            {data: data.nome_do_depositante},
-            {data: data.nome_do_autor},
-            {data: data.numero_do_pedido},
-            {data: data.nome_do_procurador}
+            {data: Object.values(data.numero_rpi)},
+            {data: Object.values(data.codigo)},
+            {data: Object.values(data.nome_do_depositante)},
+            {data: Object.values(data.nome_do_autor)},
+            {data: Object.values(data.numero_do_pedido)},
+            {data: Object.values(data.nome_do_procurador)}
         ]
     });
 </script>
