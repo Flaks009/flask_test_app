@@ -42,6 +42,12 @@ def get_patente_rpi():
     patente = rpi_patente(request.form['patente_rpi'])
     return render_template('patente.html', title = 'Patente', patente = patente)
 
+@app.route('/post_insert_email', methods=['POST'])
+def post_insert_email():
+    email = request.form['email']
+    id_ = request.form['id_email']
+    return
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
