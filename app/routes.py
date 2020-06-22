@@ -3,7 +3,7 @@ import os
 from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app.forms import LoginForm, TestForm, UploadForm
-from app.db import list_rpi, list_marca, list_desenho, list_patente, rpi_desenho, rpi_marca, rpi_patente
+from app.db import list_rpi, list_marca, list_desenho, list_patente, rpi_desenho, rpi_marca, rpi_patente, insert_email_desenho
 from werkzeug.utils import secure_filename
 
 @app.route('/')
@@ -45,8 +45,9 @@ def get_patente_rpi():
 @app.route('/post_insert_email', methods=['POST'])
 def post_insert_email():
     email = request.form['email']
-    id_ = request.form['id_email']
-    return
+    num_ped = request.form['num_ped']
+    insert_email_desenho(num_ped, email)
+
 
 def allowed_file(filename):
     return '.' in filename and \

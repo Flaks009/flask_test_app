@@ -43,3 +43,14 @@ def rpi_patente(rpi_cod):
     items = pd.read_sql_query("SELECT * FROM patente where numero_rpi = '%s'" % (rpi_cod), con)
     items = items.to_dict()
     return items
+
+def insert_email_desenho(num_ped, email):
+    con = psycopg2.connect(host = DB.HOST, port=DB.PORT, user=DB.USER, password=DB.PASSWORD, database=DB.DATABASE)
+    cur = con.cursor()
+    insert = "UPDATE desenho SET email = '%s' WHERE numero_do_pedido = '%s'" % (email, num_ped)
+    cur.execute(insert)
+    con.commit()
+    cur.close()
+    con.close()
+
+
