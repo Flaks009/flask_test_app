@@ -23,6 +23,8 @@
     var table = $('#data-table').DataTable({});
 
     $.each(data.numero_do_pedido, function (i, key) {
+        var id = '{{desenho["numero_do_pedido"][`{i}`]}}'
+        console.log(id)
         table.row.add([
             data.numero_rpi[i],
             data.codigo[i],
@@ -31,7 +33,7 @@
             data.nome_do_autor[i],
             data.nome_do_procurador[i],
             data.email[i],
-            '<form action="{{ url_for("post_insert_email")}}" method="POST"><input name="email"><input type="hidden" value="{{desenho["numero_do_pedido"][' + i + ']}}" name="num_ped"><button type="submit" class="btn btn-primary">Inserir</button></form>'
+            '<form action="{{ url_for("post_insert_email")}}" method="POST"><input name="email"><input type="hidden" value="'+id+'" name="num_ped"><button type="submit" class="btn btn-primary">Inserir</button></form>'
         ]);
     });
 
