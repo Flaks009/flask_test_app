@@ -47,6 +47,7 @@ def post_insert_email():
     email = request.form['email']
     num_ped = request.form['num_ped']
     insert_email_desenho(num_ped, email)
+    return redirect(url_for('index'))
 
 
 def allowed_file(filename):
