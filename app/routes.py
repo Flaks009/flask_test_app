@@ -47,4 +47,4 @@ def post_insert_email():
     email = request.form['email']
     num_ped = request.form['num_ped']
     insert_email_desenho(num_ped, email)
-    return jsonify({'response':num_ped})
+    return '', 200
