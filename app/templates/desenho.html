@@ -59,13 +59,11 @@
                 indexed_array[n['name']] = n['value'];
             });
 
-            alert(indexed_array);
-
             return indexed_array;
         }
 
     function post_email(id_html){
-        var num_ped = $(`#${id_html}`);
+        num_ped = $(`#${id_html}`);
         num_ped = getFormData(num_ped);
               
         $.ajax({
