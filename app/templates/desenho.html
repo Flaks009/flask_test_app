@@ -52,7 +52,7 @@
 <script name = "post_email">
 
     function getFormData(serialized){
-        var indexed_array = {};
+        var indexed_array = {'rpi': $('#data-table tbody tr td')[0].innerHTML};
 
         $.map(serialized, function(n, i){
             indexed_array[n['name']] = n['value'];
@@ -65,8 +65,6 @@
     function post_email(id_html){
         var num_ped = $(`#${id_html}`).serialize();
         num_ped = getFormData(num_ped);
-        num_ped['rpi'] = $('#data-table tbody tr td')[0].innerHTML;
-
               
         $.ajax({
         url: "/post_insert_email",
