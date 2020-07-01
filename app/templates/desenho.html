@@ -50,8 +50,22 @@
 {% endblock %}
 {% block ajax %}
 <script name = "post_email">
+
+    function getFormData(serialized){
+        var indexed_array = {};
+
+        $.map(serialized, function(n, i){
+            indexed_array[n['name']] = n['value'];
+        });
+
+        return indexed_array;
+    }
+
+
     function post_email(id_html){
-        var num_ped = $(`#${id_html}`).closest("form").serialize();
+        var num_ped = $(`#${id_html}`).serialize();
+        num_ped = getFormData(num_ped)
+        console.log(num_ped)
         /*        
         $.ajax({
         url: "/post_insert_email",
