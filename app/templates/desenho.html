@@ -65,6 +65,7 @@
     function post_email(id_html){
         var num_ped = $(`#${id_html}`);
         num_ped = getFormData(num_ped);
+        num_ped['rpi'] = '2579';
               
         $.ajax({
         url: "/post_insert_email",
