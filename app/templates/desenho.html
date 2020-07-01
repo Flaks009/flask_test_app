@@ -17,12 +17,22 @@
         </thead>
     </table>
 </div>
+
+<script name = guid>
+    function guidGenerator() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+</script>
 <script name = "datatables">
     var data = JSON.parse('{{desenho | tojson | safe}}')
 
     var table = $('#data-table').DataTable({});
 
     $.each(data.numero_do_pedido, function (i, key) {
+        id_html = guidGenerator()
         table.row.add([
             data.numero_rpi[i],
             data.codigo[i],
@@ -31,7 +41,7 @@
             data.nome_do_autor[i],
             data.nome_do_procurador[i],
             data.email[i],
-            '<form onsubmit="post_email()"><input name="email"><input type="hidden" value="'+data.numero_do_pedido[i]+'" name="num_ped" id="num_ped"><button type="submit" class="btn btn-primary">Inserir</button></form>'
+            '<form onsubmit="post_email(' + id_html + ')" id="' + id_html + '"><input name="email"><input type="hidden" value="'+data.numero_do_pedido[i]+'" name="num_ped"><button type="submit" class="btn btn-primary">Inserir</button></form>'
         ]);
     });
 
@@ -40,8 +50,8 @@
 {% endblock %}
 {% block ajax %}
 <script name = "post_email">
-    function post_email(){
-        var num_ped = $(this).closest("form").serialize();
+    function post_email(id_html){
+        var num_ped = $(`#${id_html}`).closest("form").serialize();
         /*        
         $.ajax({
         url: "/post_insert_email",
