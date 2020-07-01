@@ -53,7 +53,7 @@
 
     function getFormData(serialized){
             var unindexed_array = serialized.serializeArray();
-            var indexed_array = {'rpi':$('#data-table tbody tr td')[0].innerHTML};
+            var indexed_array = {};
 
             $.map(unindexed_array, function(n, i){
                 indexed_array[n['name']] = n['value'];
@@ -63,7 +63,7 @@
         }
 
     function post_email(id_html){
-        num_ped = $(`#${id_html}`);
+        var num_ped = $(`#${id_html}`);
         num_ped = getFormData(num_ped);
               
         $.ajax({
@@ -72,13 +72,13 @@
         data: num_ped,
         dataType: 'json',
         success: function(response) {
-            alert(num_ped);
+            console.log(num_ped)
         },
         error: function(xhr){
-            console.log('error');
+            console.log('error')
         }
         });
-
+        return num_ped
     }
 </script>
 {% endblock %}
