@@ -41,9 +41,8 @@
 {% block ajax %}
 <script name = "post_email">
     function post_email(){
-        var num_ped = $(this)
-        console.log(num_ped)
-/*        
+        var num_ped = $(this).closest("form").serialize();
+        /*        
         $.ajax({
         url: "/post_insert_email",
         type: "POST",
