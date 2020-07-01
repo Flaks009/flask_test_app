@@ -41,20 +41,17 @@
 <script name = "post_email">
     function post_email(){
         var num_ped = $(this)
-        console.log(num_ped)
-/*
+        
         $.ajax({
         url: "/post_insert_email",
         type: "post",
-        data: {jsdata: text},
         success: function(response) {
-            table.reload();
+            console.log(num_ped)
         },
-        error: function(xhr) s{
-            //Do Something to handle error
+        error: function(xhr){
+            console.log('error')
         }
         });
-*/
     }
 </script>
 {% endblock %}
