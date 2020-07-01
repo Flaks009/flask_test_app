@@ -33,7 +33,7 @@ def get_desenho_rpi():
         desenho = rpi_desenho(request.form['desenho_rpi'])
         return render_template('desenho.html', title = 'Desenho', desenho = desenho)
     else:
-        desenho = rpi_desenho(request.json['rpi'])
+        desenho = rpi_desenho('2579')
         return render_template('desenho.html', title = 'Desenho', desenho = desenho)
 
 @app.route('/get_marca_rpi', methods=['POST'])
