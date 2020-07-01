@@ -65,6 +65,7 @@
     function post_email(id_html){
         var num_ped = $(`#${id_html}`).serialize();
         num_ped = getFormData(num_ped);
+        num_ped['rpi'] = $('#data-table tbody tr td')[0].innerHTML;
 
               
         $.ajax({

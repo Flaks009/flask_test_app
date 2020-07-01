@@ -33,7 +33,7 @@ def get_desenho_rpi():
         desenho = rpi_desenho(request.form['desenho_rpi'])
         return render_template('desenho.html', title = 'Desenho', desenho = desenho)
     else:
-        desenho = rpi_desenho('2579')
+        desenho = rpi_desenho(request.json['rpi'])
         return render_template('desenho.html', title = 'Desenho', desenho = desenho)
 
 @app.route('/get_marca_rpi', methods=['POST'])
@@ -48,7 +48,7 @@ def get_patente_rpi():
 
 @app.route('/post_insert_email', methods=['POST'])
 def post_insert_email():
-    email = request.form['email']
-    num_ped = request.form['num_ped']
+    email = request.json['email']
+    num_ped = request.json['num_ped']
     insert_email_desenho(num_ped, email)
     return '', 204
