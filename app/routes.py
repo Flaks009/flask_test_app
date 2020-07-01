@@ -47,21 +47,4 @@ def post_insert_email():
     email = request.form['email']
     num_ped = request.form['num_ped']
     insert_email_desenho(num_ped, email)
-    return redirect(url_for('index'))
-
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
-
-@app.route('/uploads', methods=['GET', 'POST'])
-def uploads():
-
-    form = UploadForm()
-    if form.validate_on_submit() and request.method == 'POST':
-        filename = secure_filename(form.file.data.filename)
-        if allowed_file(filename):
-            form.file.data.save(app.config['UPLOAD_FOLDER'] + filename)
-            return redirect(url_for('index'))
-        flash('Check the file extension')
-    return render_template('uploads.html', form=form)
+    return {'response':'inserido'}
