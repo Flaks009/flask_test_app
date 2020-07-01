@@ -27,7 +27,7 @@ def patente():
     patente = list_patente()
     return render_template('patente.html', title = 'Patente', patente = patente)
 
-@app.route('/get_desenho_rpi', methods=['POST'])
+@app.route('/get_desenho_rpi', methods=['POST', 'GET'])
 def get_desenho_rpi():
     desenho = rpi_desenho(request.form['desenho_rpi'])
     return render_template('desenho.html', title = 'Desenho', desenho = desenho)
