@@ -73,13 +73,13 @@
         data: num_ped,
         dataType: 'json',
         success: function(response) {
-            console.log(num_ped)
+            return num_ped
         },
         error: function(xhr){
             console.log('error')
         }
         });
-        return num_ped
+        
     }
 </script>
 {% endblock %}
