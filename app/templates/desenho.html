@@ -52,18 +52,18 @@
 <script name = "post_email">
 
     function getFormData(serialized){
-        var indexed_array = {'rpi': $('#data-table tbody tr td')[0].innerHTML};
+            var unindexed_array = serialized.serializeArray();
+            var indexed_array = {};
 
-        $.map(serialized, function(n, i){
-            indexed_array[n['name']] = n['value'];
-        });
+            $.map(unindexed_array, function(n, i){
+                indexed_array[n['name']] = n['value'];
+            });
 
-        return indexed_array;
-    }
-
+            return indexed_array;
+        }
 
     function post_email(id_html){
-        var num_ped = $(`#${id_html}`).serialize();
+        var num_ped = $(`#${id_html}`);
         num_ped = getFormData(num_ped);
               
         $.ajax({
