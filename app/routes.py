@@ -52,4 +52,4 @@ def post_insert_email():
     num_ped = request.json['num_ped']
     rpi = request.json['rpi']
     insert_email_desenho(num_ped, email)
-    return jsonify({'rpi': rpi}), 204
+    return '', 204
