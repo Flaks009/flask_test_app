@@ -42,7 +42,7 @@ def get_patente_rpi():
     patente = rpi_patente(request.form['patente_rpi'])
     return render_template('patente.html', title = 'Patente', patente = patente)
 
-@app.route('/post_insert_email', methods=['POST'])
+@app.route('/post_insert_email', methods=['POST', 'GET'])
 def post_insert_email():
     email = request.form['email']
     num_ped = request.form['num_ped']
