@@ -31,7 +31,7 @@
             data.nome_do_autor[i],
             data.nome_do_procurador[i],
             data.email[i],
-            '<form action="{{ url_for("post_insert_email")}}" method="POST" onsubmit="post_email()"><input name="email"><input type="hidden" value="'+data.numero_do_pedido[i]+'" name="num_ped" id="num_ped"><button type="submit" class="btn btn-primary">Inserir</button></form>'
+            '<form onsubmit="post_email()"><input name="email"><input type="hidden" value="'+data.numero_do_pedido[i]+'" name="num_ped" id="num_ped"><button type="submit" class="btn btn-primary">Inserir</button></form>'
         ]);
     });
 
@@ -40,7 +40,6 @@
 
 <script name = "post_email">
     function post_email(){
-        //var table = $('#data-table').DataTable({});
         var num_ped = $(this)
         console.log(num_ped)
 /*
