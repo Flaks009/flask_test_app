@@ -65,11 +65,13 @@
     function post_email(id_html){
         var num_ped = $(`#${id_html}`).serialize();
         num_ped = getFormData(num_ped)
-        console.log(num_ped)
-        /*        
+
+              
         $.ajax({
         url: "/post_insert_email",
         type: "POST",
+        data: num_ped,
+        dataType: 'json',
         success: function(response) {
             console.log(num_ped)
         },
@@ -77,7 +79,7 @@
             console.log('error')
         }
         });
-*/
+
     }
 </script>
 {% endblock %}
