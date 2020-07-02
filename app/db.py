@@ -4,7 +4,7 @@ import pandas as pd
 
 def list_rpi():
     con = psycopg2.connect(host = DB.HOST, port=DB.PORT, user=DB.USER, password=DB.PASSWORD, database=DB.DATABASE)
-    items = pd.read_sql_query('SELECT * FROM rpi', con)
+    items = pd.read_sql_query('SELECT * FROM rpi ORDER BY rpi ASC', con)
     items = items.to_dict()
     return items
 
