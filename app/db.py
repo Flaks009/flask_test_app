@@ -28,7 +28,7 @@ def list_desenho():
 
 def rpi_desenho(rpi_cod):
     con = psycopg2.connect(host = DB.HOST, port=DB.PORT, user=DB.USER, password=DB.PASSWORD, database=DB.DATABASE)
-    items = pd.read_sql_query("SELECT * FROM desenho where numero_rpi = '%s' AND nome_do_procurador IS NULL" % (rpi_cod), con)
+    items = pd.read_sql_query("SELECT * FROM desenho where (numero_rpi = '%s') AND (nome_do_procurador IS NULL)" % (rpi_cod), con)
     items = items.to_dict()
     return items
 
