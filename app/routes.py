@@ -52,5 +52,4 @@ def post_insert_email():
     num_ped = request.json['num_ped']
     rpi = request.json['rpi']
     insert_email_desenho(num_ped, email)
-    desenho = rpi_desenho(rpi)
-    return redirect(url_for('get_desenho_rpi', desenho=desenho))
+    return redirect(url_for('get_desenho_rpi', rpi=rpi))
