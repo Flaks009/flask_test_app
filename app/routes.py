@@ -31,7 +31,10 @@ def patente():
 def get_desenho_rpi():
     if request.method == 'POST':
         desenho = rpi_desenho(request.form['desenho_rpi'])
-        return render_template('desenho.html', title = 'Desenho', desenho = desenho, teste="direct")
+        return render_template('desenho.html', title = 'Desenho', desenho = desenho)
+    elif request.method == 'GET':
+        desenho = rpi_desenho(request.args.get('rpi'))
+        return render_template('desenho.html', title = 'Desenho', desenho = desenho)
 
 @app.route('/get_marca_rpi', methods=['POST'])
 def get_marca_rpi():
@@ -49,5 +52,4 @@ def post_insert_email():
     num_ped = request.json['num_ped']
     rpi = request.json['rpi']
     insert_email_desenho(num_ped, email)
-    desenho = rpi_desenho(rpi)
-    return render_template('desenho.html', title = 'Desenho', desenho = desenho, teste="indirect")
+    return redirect(url_for('get_desenho_rpi'))
