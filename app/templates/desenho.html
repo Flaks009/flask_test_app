@@ -82,7 +82,6 @@ dataAdd();
         data: JSON.stringify(num_ped),
         contentType: "application/json;charset=UTF-8",
         success: function(response) {
-            data = JSON.parse('{{desenho | tojson | safe}}')
             table.clear();
             dataAdd();
         },
