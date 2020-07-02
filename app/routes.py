@@ -48,8 +48,7 @@ def get_patente_rpi():
 
 @app.route('/post_insert_email', methods=['POST'])
 def post_insert_email():
-    data = request.data
-    email = data['email']
-    num_ped = data['num_ped']
+    email = request.json['email']
+    num_ped = request.json['num_ped']
     insert_email_desenho(num_ped, email)
     return '', 204

@@ -43,7 +43,7 @@
             data.nome_do_procurador[i],
             data.email[i],
             `
-            <form onsubmit="post_email("${id_html}") id="${id_html}">
+            <form onsubmit="post_email('${id_html}')" id="${id_html}">
             <input name="email"><input type="hidden" value="${$('#rpi')[0].innerHTML}" name="rpi">
             <input type="hidden" value="${data.numero_do_pedido[i]}" name="num_ped">
             <button type="submit" class="btn btn-primary">Inserir</button>
