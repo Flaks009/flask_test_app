@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% set json = desenho | tojson | safe %}
-{{json}}
+
 <div class="container">
     <span id="rpi" hidden></span>
     <table id="data-table">
@@ -90,6 +89,7 @@
             success: function (response) {
                 table.clear();
                 dataAdd(data);
+                location.reload();
             },
             error: function (xhr) {
                 console.log('error');
