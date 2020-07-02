@@ -50,5 +50,6 @@ def get_patente_rpi():
 def post_insert_email():
     email = request.json['email']
     num_ped = request.json['num_ped']
+    rpi = request.json['rpi']
     insert_email_desenho(num_ped, email)
-    return redirect(url_for('get_desenho_rpi'))
+    return redirect(url_for('get_desenho_rpi', rpi=rpi))
