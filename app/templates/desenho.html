@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <span id="rpi" hidden></span>
-    <span id="json" hidden>{{json = desenho | tojson | safe}}</span>
+    <span id="json" hidden>{% set json = desenho | tojson | safe %}</span>
     <table id="data-table">
         <thead>
             <tr>
