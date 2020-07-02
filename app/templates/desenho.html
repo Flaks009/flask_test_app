@@ -51,28 +51,16 @@
 {% block ajax %}
 <script name = "post_email">
 
-    function getFormData(serialized){
-        var unindexed_array = serialized.serializeArray();
-        var indexed_array = {'rpi':$('#data-table tbody tr td')[0].innerHTML};
-
-        $.map(unindexed_array, function(n, i){
-            indexed_array[n['name']] = n['value'];
-        });
-
-        return indexed_array;
-        }
-
     function post_email(id_html){
-        var num_ped = $(`#${id_html}`).serialize();
-        num_ped = getFormData(num_ped);
+        var num_ped = $(`#${id_html}`);
+        num_ped += `&rpi='${$("#data-table tbody tr td")[0].innerHTML}`
                   
         $.ajax({
         url: "/post_insert_email",
         type: "POST",
         data: num_ped,
-        dataType: 'application/json',
         success: function(response) {
-            console.log(num_ped)
+            console.log('pass')
         },
         error: function(xhr){
             console.log('error')
