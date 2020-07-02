@@ -79,7 +79,6 @@
         data: JSON.stringify(num_ped),
         contentType: "application/json;charset=UTF-8",
         success: function(response) {
-            $('#data-table').DataTable().ajax.reload();
             alert('Sucess');
         },
         error: function(xhr){
