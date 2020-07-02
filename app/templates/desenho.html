@@ -2,7 +2,7 @@
 
 {% block content %}
 {% set json = desenho | tojson | safe %}
-{{json.desenho.email.0}}
+{{json}}
 <div class="container">
     <span id="rpi" hidden></span>
     <table id="data-table">
