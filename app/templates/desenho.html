@@ -28,7 +28,8 @@
     }
 </script>
 <script name="datatables">
-    var data = JSON.parse('{{json}}')
+    console.log('aaaaa');
+    var data = JSON.parse('{{desenho | tojson | safe}}')
     var table = $('#data-table').DataTable({});
     var span = $('#rpi').text(data.numero_rpi[0])
 
