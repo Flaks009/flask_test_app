@@ -28,9 +28,15 @@
 }
 </script>
 <script name = "datatables">
-    var data = JSON.parse('{{desenho | tojson | safe}}')
     var table = $('#data-table').DataTable({});
     var span = $('#rpi').text(data.numero_rpi[0])
+
+    function load_data(){
+        var data = JSON.parse('{{desenho | tojson | safe}}')
+        return data
+    }
+
+    data = load_data();
 
     function dataAdd(data){
         $.each(data.numero_do_pedido, function (i, key) {
@@ -82,6 +88,7 @@
         data: JSON.stringify(num_ped),
         contentType: "application/json;charset=UTF-8",
         success: function(response) {
+            data = load_data();
             table.clear();
             dataAdd(data);
         },
