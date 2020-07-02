@@ -3,6 +3,7 @@
 {% block content %}
 <div class="container">
     <span id="rpi" hidden></span>
+    <span id="json" hidden>{{json = desenho | tojson | safe}}</span>
     <table id="data-table">
         <thead>
             <tr>
@@ -29,7 +30,7 @@
 </script>
 <script name="datatables">
     console.log('aaaaa');
-    var data = JSON.parse('{{desenho | tojson | safe}}')
+    var data = JSON.parse('{{json}}')
     var table = $('#data-table').DataTable({});
     var span = $('#rpi').text(data.numero_rpi[0])
 
