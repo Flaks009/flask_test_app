@@ -41,7 +41,7 @@
             data.nome_do_autor[i],
             data.nome_do_procurador[i],
             data.email[i],
-            '<form onsubmit="post_email("'+id_html+'") id="' + id_html + '"><input name="email"><input type="hidden" value="'+data.numero_do_pedido[i]+'" name="num_ped"><button type="submit" class="btn btn-primary">Inserir</button></form>'
+            `<form onsubmit="post_email("${id_html}") id="${id_html}"><input name="email"><input type="hidden" value="${$('#data-table tbody tr td')[0].innerHTML}"><input type="hidden" value="${data.numero_do_pedido[i]}" name="num_ped"><button type="submit" class="btn btn-primary">Inserir</button></form>`
         ]);
     });
 
@@ -51,14 +51,27 @@
 {% block ajax %}
 <script name = "post_email">
 
+    function getFormData(serialized){
+        var unindexed_array = serialized.serializeArray();
+        var indexed_array = {'rpi':$('#data-table tbody tr td')[0].innerHTML};
+
+        $.map(unindexed_array, function(n, i){
+            indexed_array[n['name']] = n['value'];
+        });
+
+        return indexed_array;
+        }
+
     function post_email(id_html){
-        var num_ped = $(`#${id_html}`);
-        num_ped += `&rpi='${$("#data-table tbody tr td")[0].innerHTML}`
+        var num_ped = $(`#${id_html}`).serialize();
+        num_ped = getFormData(num_ped);
                   
         $.ajax({
         url: "/post_insert_email",
         type: "POST",
-        data: num_ped,
+        data: JSON.stringify(num_ped),
+        contentType: "application/json",
+        dataType: "json",
         success: function(response) {
             console.log('pass')
         },
