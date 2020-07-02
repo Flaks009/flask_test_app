@@ -79,7 +79,7 @@
         data: JSON.stringify(num_ped),
         contentType: "application/json;charset=UTF-8",
         success: function(response) {
-            console.log('pass')
+            $('#data-table').DataTable().ajax().reload();
         },
         error: function(xhr){
             console.log('error')
