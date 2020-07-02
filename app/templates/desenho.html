@@ -82,6 +82,7 @@ dataAdd();
         data: JSON.stringify(num_ped),
         contentType: "application/json;charset=UTF-8",
         success: function(response) {
+            table.clear();
             dataAdd();
         },
         error: function(xhr){
