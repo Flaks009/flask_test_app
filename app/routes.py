@@ -32,7 +32,7 @@ def get_desenho_rpi():
     if request.method == 'POST':
         desenho = rpi_desenho(request.form['desenho_rpi'])
         return render_template('desenho.html', title = 'Desenho', desenho = desenho)
-    else:
+    elif request.method == 'GET':
         desenho = rpi_desenho(request.args.get('rpi'))
         return render_template('desenho.html', title = 'Desenho', desenho = desenho)
 
