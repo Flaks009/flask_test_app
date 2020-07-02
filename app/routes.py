@@ -52,4 +52,4 @@ def post_insert_email():
     email = data['email']
     num_ped = data['num_ped']
     insert_email_desenho(num_ped, email)
-    return {'a':0}, 200
+    return '', 204
