@@ -10,7 +10,6 @@
                 <th scope="col">Rpi</th>
                 <th scope="col">Codigo</th>
                 <th scope="col">Numero</th>
-                <th scope="col">Nome codigo</th>
                 <th scope="col">Razao social</th>
                 <th scope="col">Procurador</th>
                 <th scope="col">Email</th>
@@ -29,11 +28,9 @@
     }
 </script>
 <script name="datatables">
-    console.log('aaaaa');
-    var data = JSON.parse('{{marca | tojson | safe}}')
-    console.log(data)
+    var data = JSON.parse('{{marca | tojson | safe}}');
     var table = $('#data-table').DataTable({});
-    var span = $('#rpi').text(data.numero_rpi[0])
+    var span = $('#rpi').text(data.numero_rpi[0]);
 
 
 
@@ -41,6 +38,7 @@
         $.each(data.numero, function (i, key) {
             id_html = guidGenerator();
             table.row.add([
+                data.numero_rpi[i],
                 data.numero[i],
                 data.codigo[i],
                 data['nome-razao-social'][i],
