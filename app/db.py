@@ -34,13 +34,13 @@ def rpi_desenho(rpi_cod):
 
 def rpi_marca(rpi_cod):
     con = psycopg2.connect(host = DB.HOST, port=DB.PORT, user=DB.USER, password=DB.PASSWORD, database=DB.DATABASE)
-    items = pd.read_sql_query("SELECT * FROM marca where numero_rpi = '%s' AND procurador IS NULL" % (rpi_cod), con)
+    items = pd.read_sql_query("SELECT * FROM marca where (numero_rpi = '%s') AND (procurador IS NULL)" % (rpi_cod), con)
     items = items.to_dict()
     return items
 
 def rpi_patente(rpi_cod):
     con = psycopg2.connect(host = DB.HOST, port=DB.PORT, user=DB.USER, password=DB.PASSWORD, database=DB.DATABASE)
-    items = pd.read_sql_query("SELECT * FROM patente where numero_rpi = '%s' AND nome_do_procurador IS NULL" % (rpi_cod), con)
+    items = pd.read_sql_query("SELECT * FROM patente where numero_rpi = '%s' AND (nome_do_procurador IS NULL)" % (rpi_cod), con)
     items = items.to_dict()
     return items
 
