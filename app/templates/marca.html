@@ -49,7 +49,7 @@
                 `
                 <form id="${id_html}">
                 <input name="email"><input type="hidden" value="${$('#rpi')[0].innerHTML}" name="rpi">
-                <input type="hidden" value="${data.numero_do_pedido[i]}" name="num_ped">
+                <input type="hidden" value="${data.numero[i]}" name="num_ped">
                 <button type="button" class="btn btn-primary" onclick="post_email('${id_html}')">Inserir</button>
                 </form>
                 `
