@@ -31,8 +31,10 @@
 
     var data = JSON.parse('{{patente | tojson | safe}}')
     var table = $('#data-table').DataTable({
-        "drawCallback": function( settings ) { 
-            console.log(settings)
+        "drawCallback": function( row, data, index ) {
+            if ( data.email.length > 1 ) {
+                $('td:eq(4)', row).addClass('active');
+            }
         }
     });
     var span = $('#rpi').text(data.numero_rpi[0])
