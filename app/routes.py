@@ -33,15 +33,17 @@ def get_desenho_rpi():
         desenho = rpi_desenho(request.form['desenho_rpi'])
         return render_template('desenho.html', title = 'Desenho', desenho = desenho)
 
-@app.route('/get_marca_rpi', methods=['POST'])
+@app.route('/get_marca_rpi', methods=['POST', 'GET'])
 def get_marca_rpi():
-    marca = rpi_marca(request.form['marca_rpi'])
-    return render_template('marca.html', title = 'Marca', marca = marca)
+    if request.method == 'POST':
+        marca = rpi_marca(request.form['marca_rpi'])
+        return render_template('marca.html', title = 'Marca', marca = marca)
 
-@app.route('/get_patente_rpi', methods=['POST'])
+@app.route('/get_patente_rpi', methods=['POST', 'GET'])
 def get_patente_rpi():
-    patente = rpi_patente(request.form['patente_rpi'])
-    return render_template('patente.html', title = 'Patente', patente = patente)
+    if request.method == 'POST':
+        patente = rpi_patente(request.form['patente_rpi'])
+        return render_template('patente.html', title = 'Patente', patente = patente)
 
 @app.route('/post_insert_email', methods=['POST'])
 def post_insert_email():
