@@ -28,7 +28,6 @@
     }
 </script>
 <script name="datatables">
-    console.log('aaaaa');
     var data = JSON.parse('{{patente | tojson | safe}}')
     var table = $('#data-table').DataTable({});
     var span = $('#rpi').text(data.numero_rpi[0])
@@ -55,9 +54,22 @@
             ]);
         });
 
+        var oldoptions = table.fnSettings();
+        var newoptions = $.extend(oldoptions, {
+            fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                if (aData[4].length > 1) {
+                    $('td', nRow).addClass('bg-primary');
+                }
+                return nRow;
+            }
+        })
+
+        table.fnDestroy();
+
+        $('data-tables').dataTable(newoptions);
+        dataAdd(data);
         table.draw();
     };
-    dataAdd(data);
 </script>
 {% endblock %}
 {% block ajax %}
