@@ -30,7 +30,11 @@
 <script name="datatables">
 
     var data = JSON.parse('{{patente | tojson | safe}}')
-    var table = $('#data-table').DataTable({});
+    var table = $('#data-table').DataTable({
+        "drawCallback": function( settings ) { 
+            console.log(settings)
+        };
+    });
     var span = $('#rpi').text(data.numero_rpi[0])
 
 
