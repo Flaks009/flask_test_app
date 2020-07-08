@@ -67,7 +67,8 @@
     function getFormData(serialized) {
         var unindexed_array = serialized.serializeArray();
         var indexed_array = {
-            'rpi': $('#data-table tbody tr td')[0].innerHTML
+            'rpi': $('#data-table tbody tr td')[0].innerHTML,
+            'tipo': 'desenho'
         };
 
         $.map(unindexed_array, function (n, i) {

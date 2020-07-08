@@ -3,7 +3,7 @@ import os
 from flask import render_template, flash, redirect, url_for, request, jsonify
 from app import app
 from app.forms import LoginForm, TestForm, UploadForm
-from app.db import list_rpi, list_marca, list_desenho, list_patente, rpi_desenho, rpi_marca, rpi_patente, insert_email_desenho
+from app.db import list_rpi, list_marca, list_desenho, list_patente, rpi_desenho, rpi_marca, rpi_patente, insert_email_desenho, insert_email_marca, insert_email_patente
 from werkzeug.utils import secure_filename
 
 @app.route('/')
@@ -48,6 +48,17 @@ def post_insert_email():
     email = request.json['email']
     num_ped = request.json['num_ped']
     rpi = request.json['rpi']
-    insert_email_desenho(num_ped, email)
-    desenho = rpi_desenho(rpi)
-    return {'json': desenho}
+    tipo = request.json['tipo']
+    if tipo == 'desenho':
+        insert_email_desenho(num_ped, email)
+        desenho = rpi_desenho(rpi)
+        return {'json': desenho}
+    elif tipo == 'patente':
+        insert_email_patente(num_ped, email)
+        patente = rpi_patente(rpi)
+        return {'json':patente}
+    else:
+        insert_email_marca(num_ped, email)
+        marca = rpi_marca(rpi)
+        return {'json':marca}
+        
