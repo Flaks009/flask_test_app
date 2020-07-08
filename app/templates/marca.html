@@ -31,6 +31,7 @@
 <script name="datatables">
     console.log('aaaaa');
     var data = JSON.parse('{{marca | tojson | safe}}')
+    console.log(data)
     var table = $('#data-table').DataTable({});
     var span = $('#rpi').text(data.numero_rpi[0])
 
