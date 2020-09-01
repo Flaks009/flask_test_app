@@ -2,65 +2,8 @@
 import os
 from flask import render_template, flash, redirect, url_for, request, jsonify
 from app import app
-from app.forms import LoginForm, TestForm, UploadForm
-from app.db import list_rpi, list_marca, list_desenho, list_patente, rpi_desenho, rpi_marca, rpi_patente, insert_email_desenho, insert_email_marca, insert_email_patente
-from werkzeug.utils import secure_filename
 
 @app.route('/')
 @app.route('/index')
 def index():
-    rpi = list_rpi()
-    return render_template('index.html', title = 'Home', rpi = rpi)
-
-@app.route('/marca')
-def marca():
-    marca = list_marca()
-    return render_template('marca.html', title = 'Marca', marca = marca)
-
-@app.route('/desenho')
-def desenho():
-    desenho = list_desenho()
-    return render_template('desenho.html', title = 'Desenho', desenho = desenho)
-
-@app.route('/patente')
-def patente():
-    patente = list_patente()
-    return render_template('patente.html', title = 'Patente', patente = patente)
-
-@app.route('/get_desenho_rpi', methods=['POST', 'GET'])
-def get_desenho_rpi():
-    if request.method == 'POST':
-        desenho = rpi_desenho(request.form['desenho_rpi'])
-        return render_template('desenho.html', title = 'Desenho', desenho = desenho)
-
-@app.route('/get_marca_rpi', methods=['POST', 'GET'])
-def get_marca_rpi():
-    if request.method == 'POST':
-        marca = rpi_marca(request.form['marca_rpi'])
-        return render_template('marca.html', title = 'Marca', marca = marca)
-
-@app.route('/get_patente_rpi', methods=['POST', 'GET'])
-def get_patente_rpi():
-    if request.method == 'POST':
-        patente = rpi_patente(request.form['patente_rpi'])
-        return render_template('patente.html', title = 'Patente', patente = patente)
-
-@app.route('/post_insert_email', methods=['POST'])
-def post_insert_email():
-    email = request.json['email']
-    num_ped = request.json['num_ped']
-    rpi = request.json['rpi']
-    tipo = request.json['tipo']
-    if tipo == 'desenho':
-        insert_email_desenho(num_ped, email)
-        desenho = rpi_desenho(rpi)
-        return {'json': desenho}
-    elif tipo == 'patente':
-        insert_email_patente(num_ped, email)
-        patente = rpi_patente(rpi)
-        return {'json':patente}
-    else:
-        insert_email_marca(num_ped, email)
-        marca = rpi_marca(rpi)
-        return {'json':marca}
-        
+    return render_template('index.html', title = 'Home')
