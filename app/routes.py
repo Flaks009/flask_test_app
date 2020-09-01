@@ -10,6 +10,6 @@ def index():
     files = glob.glob('/home/ubuntu/inpi_extract/xlsx/*')
     return render_template('index.html', title = 'Home', files = files)
 
-@app.route('/download/<path>')
+@app.route('/<path>')
 def download(path = None):
     return send_file(path, as_attachment=True)
