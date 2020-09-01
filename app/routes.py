@@ -11,16 +11,18 @@ UPLOAD_DIRECTORY = "/home/ubuntu/inpi_extract/xlsx/"
 def index():
     return render_template('index.html', title = 'Home')
 
+@app.route('/patente')
 def patente():
     files = glob.glob('/home/ubuntu/inpi_extract/xlsx/P*')
     files.sort()
     return render_template('patente.html', title='Patente', files = files)
-
+@app.route('/desenho_industrial')
 def desenho_industrial():
     files = glob.glob('/home/ubuntu/inpi_extract/xlsx/D*')
     files.sort()
     return render_template('desenho.html', title='Desenho Industrial', files = files)
 
+@app.route('/marca')
 def marca():
     files = glob.glob('/home/ubuntu/inpi_extract/xlsx/RM*')
     files.sort()
