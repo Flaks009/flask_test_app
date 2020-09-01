@@ -7,7 +7,7 @@
         <h1>Download</h1>
         {% for file in files %}
             {% set file_url = '/download/' + file.split('/')[5] %}
-            <a href = {{file_url}}>{{file.split('/')[5]}}</a>
+            <p class="lead"><a href = {{file_url}}>{{file.split('/')[5]}}</a></p>
         {% endfor %}
     </div>
 </body>
