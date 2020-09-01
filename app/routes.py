@@ -1,6 +1,6 @@
 
 import os
-from flask import render_template, flash, redirect, url_for, request, jsonify, send_file
+from flask import render_template, flash, redirect, url_for, request, jsonify, send_from_directory
 from app import app
 import glob
 
@@ -14,4 +14,4 @@ def index():
 
 @app.route('/download/<path>')
 def download(path):
-    return send_file(UPLOAD_DIRECTORY, path, as_attachment=True)
+    return send_from_directory(UPLOAD_DIRECTORY, path, as_attachment=True)
