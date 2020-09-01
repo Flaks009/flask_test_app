@@ -6,7 +6,7 @@
     <div class="container text-center">
         <h1>Download</h1>
         {% for file in files %}
-            {% set file_url = '/download/' + file %}
+            {% set file_url = '/download' + file %}
             <a href = {{file_url}}>{{file.split('/')[5]}}</a>
         {% endfor %}
     </div>
