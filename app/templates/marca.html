@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+    <div class="container text-center">
+        <h1>Download Marca</h1>
+        {% for file in files %}
+            {% set file_url = '/download/' + file.split('/')[5] %}
+            <p class="lead"><a href = {{file_url}}>{{file.split('/')[5]}}</a></p>
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}
