@@ -14,4 +14,4 @@ def index():
 
 @app.route('/download/<path>')
 def download(path):
-    return send_from_directory(UPLOAD_DIRECTORY, path, as_attachment=True)
+    return send_from_directory(UPLOAD_DIRECTORY, filename=path, as_attachment=True)
