@@ -14,18 +14,18 @@ def index():
 @app.route('/patente')
 def patente():
     files = glob.glob('/home/ubuntu/inpi_extract/xlsx/P*')
-    files.sort()
+    files.sort(reverse=True)
     return render_template('patente.html', title='Patente', files = files)
 @app.route('/desenho_industrial')
 def desenho_industrial():
     files = glob.glob('/home/ubuntu/inpi_extract/xlsx/D*')
-    files.sort()
+    files.sort(reverse=True)
     return render_template('desenho.html', title='Desenho Industrial', files = files)
 
 @app.route('/marca')
 def marca():
     files = glob.glob('/home/ubuntu/inpi_extract/xlsx/RM*')
-    files.sort()
+    files.sort(reverse=True)
     return render_template('marca.html', title='Marca', files = files)
 
 @app.route('/download/<path>')
